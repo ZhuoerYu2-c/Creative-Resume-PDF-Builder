@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-labelledby="title">
+  <title id="title">Fictional culture center mark</title>
+  <circle cx="32" cy="32" r="23" fill="#275b5a"/>
+  <circle cx="62" cy="32" r="23" fill="#e8b44f" fill-opacity=".88"/>
+  <circle cx="47" cy="32" r="12" fill="#f7f3f0"/>
+</svg>

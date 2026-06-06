@@ -388,6 +388,23 @@ body {
   font-size: 13.2px;
 }
 
+.repo-line {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.repo-line strong {
+  color: var(--accent);
+}
+
+.repo-line span {
+  word-break: break-all;
+}
+
 .subsection {
   margin-bottom: 14px;
 }

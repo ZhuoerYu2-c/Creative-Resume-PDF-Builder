@@ -129,6 +129,7 @@ companyExperience: [
     {
       title: "潮汐书店品牌识别系统",
       source: "个人作品集项目",
+      repo: "github.com/example/tide-bookstore-brand",
       text:
         "围绕独立书店的阅读、停留与交流场景建立品牌概念，完成标志、字体、色彩、书签、包装、活动海报和社交媒体模板，并制作完整视觉规范手册。"
     }

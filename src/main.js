@@ -160,6 +160,11 @@ function renderProjects() {
               <span>${p.source}</span>
             </div>
             <p>${p.text}</p>
+            ${
+              p.repo
+                ? `<div class="repo-line"><strong>Repo：</strong><span>${p.repo}</span></div>`
+                : ""
+            }
           </article>`
         )
         .join("")}
@@ -241,7 +246,10 @@ async function exportFixedPagesPdf() {
       pdf.addImage(imgData, "JPEG", 0, 0, 210, 297);
     }
 
-    pdf.save("艺术生视觉简历_两页固定版.pdf");
+    const now = new Date();
+    const pad = (number) => String(number).padStart(2, "0");
+    const timestamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+    pdf.save(`创意简历_${timestamp}.pdf`);
   } catch (error) {
     console.error(error);
     alert("PDF 导出失败，请打开浏览器 Console 查看错误。");

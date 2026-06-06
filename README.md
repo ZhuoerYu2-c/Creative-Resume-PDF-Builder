@@ -91,7 +91,7 @@ src/resume-data.js
 | `skills` | 视觉设计、插画与创作工具 |
 | `labExperience` | 创作、出版与策展经历 |
 | `companyExperience` | 实习与实践经历 |
-| `projects` | 代表项目 |
+| `projects` | 代表项目，可选填写 `repo` 展示仓库地址 |
 | `patents` | 当前模板中用于展览记录 |
 | `awards` | 荣誉与奖项 |
 
@@ -118,6 +118,19 @@ profile: {
   ]
 }
 ```
+
+为项目添加公开仓库地址：
+
+```js
+{
+  title: "项目名称",
+  source: "个人作品集项目",
+  repo: "github.com/example/your-project",
+  text: "项目简介"
+}
+```
+
+不需要展示仓库地址时，删除 `repo` 字段即可。
 
 ## 如何替换头像和 Logo
 
@@ -186,7 +199,7 @@ src/styles.css
 1. 获取页面中的两个 `.pdf-page`
 2. 使用 html2canvas 分别渲染为图片
 3. 使用 jsPDF 按 A4 尺寸逐页写入
-4. 下载 `艺术生视觉简历_两页固定版.pdf`
+4. 使用当前时间生成文件名，例如 `创意简历_20260606_213000.pdf`
 
 这种方式能够避免不同浏览器打印样式导致布局变化。
 

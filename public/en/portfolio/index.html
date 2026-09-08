@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal homepage under development." />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>个人主页</title>
+    <link rel="stylesheet" href="./portfolio.css?v=20260615-embedded-visuals" />
+    <script type="module" src="./portfolio.js?v=20260615-usv-yolo"></script>
+  </head>
+  <body class="light">
+    <canvas id="signalCanvas" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Return to top">
+        <span class="brand-mark">HP</span>
+        <span class="brand-copy"><strong>PERSONAL HOMEPAGE</strong><small>Under Development</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation"></nav>
+      <div class="header-actions">
+        <a class="text-link" href="/en/">View Resume</a>
+        <a class="language-link" href="/portfolio/">CHINESE SITE <span>ZH ↗</span></a>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch color theme">◐</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span> PERSONAL HOMEPAGE</div>
+          <h1>主页正在开发中</h1>
+          <p class="hero-intro">当前页面正在整理与更新。感谢访问，请稍后再来。</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#work">Explore Projects <span>↘</span></a>
+            <a class="secondary-button" href="#" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+          <div class="hero-tags" aria-label="Core engineering areas"></div>
+        </div>
+        <aside class="hero-console reveal" aria-label="Engineering profile">
+          <div class="console-head"><span></span><span class="console-live">AUTOMATION ENGINEER</span></div>
+          <div class="console-portrait">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Personal homepage placeholder" />
+            <div><span class="mono-label"></span><strong></strong><small></small></div>
+          </div>
+          <div class="console-grid"></div>
+          <div class="signal-readout">
+            <div class="signal-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span></span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics section-shell reveal" aria-label="Selected outcomes"></section>
+
+      <section class="section-shell section-block" id="work">
+        <div class="section-heading reveal"><div><span class="section-index"></span><h2></h2></div><p></p></div>
+        <div class="filter-bar reveal" role="group" aria-label="Project filters"></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="section-shell section-block" id="experience">
+        <div class="section-heading single-heading reveal"><div><span class="section-index"></span><h2></h2></div></div>
+        <div class="timeline"></div>
+      </section>
+
+      <section class="section-shell section-block" id="archive">
+        <div class="section-heading single-heading reveal"><div><span class="section-index"></span><h2></h2></div></div>
+        <div class="archive-grid"></div>
+      </section>
+
+      <section class="section-shell section-block" id="system">
+        <div class="section-heading reveal"><div><span class="section-index"></span><h2></h2></div><p></p></div>
+        <div class="system-map reveal"></div>
+        <div class="capability-grid"></div>
+      </section>
+
+      <section class="section-shell section-block" id="toolchain">
+        <div class="section-heading single-heading reveal"><div><span class="section-index"></span><h2></h2></div></div>
+        <div class="toolchain reveal"></div>
+      </section>
+
+      <section class="section-shell contact section-block reveal" id="contact">
+        <div><span class="section-index"></span><h2></h2><p></p></div>
+        <div class="contact-actions">
+          <a class="primary-button" href="#work">Projects <span>↗</span></a>
+          <a class="secondary-button" href="#" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="secondary-button" href="/en/">Resume ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell"><span></span><span></span></footer>
+    <dialog class="project-dialog" id="projectDialog">
+      <button class="dialog-close" id="dialogClose" type="button" aria-label="Close project details">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+  </body>
+</html>

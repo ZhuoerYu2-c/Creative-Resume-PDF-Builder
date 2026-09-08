@@ -1,7 +1,7 @@
 import "./styles.css";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import { resumeData } from "./resume-data.js";
+import { resumeData } from "./en-resume-data.js";
 
 const app = document.querySelector("#app");
 
@@ -24,7 +24,7 @@ function logoBlock(item, side) {
 function avatarBlock(profile) {
   const image = profile.avatar
     ? `<img src="${profile.avatar}" alt="${profile.name}" />`
-    : `<div class="avatar-placeholder"><strong>${profile.name.slice(0, 1)}</strong><span>个人头像</span></div>`;
+    : `<div class="avatar-placeholder"><strong>${profile.name.slice(0, 1)}</strong><span>Profile Photo</span></div>`;
 
   return `<div class="avatar-frame">${image}</div>`;
 }
@@ -34,7 +34,7 @@ function sectionTitle(title) {
 }
 
 function bullets(items) {
-  return `<ul class="bullets">${items.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+  return `<ul class="bullets">${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
 }
 
 function renderHeader() {
@@ -59,7 +59,7 @@ function renderHeader() {
       </div>
 
       <div class="contacts">
-        ${(profile.contacts || []).map((x) => `<span>${x}</span>`).join("")}
+        ${(profile.contacts || []).map((item) => `<span>${item}</span>`).join("")}
       </div>
     </header>
   `;
@@ -68,19 +68,19 @@ function renderHeader() {
 function renderEducation() {
   return `
     <section class="section">
-      ${sectionTitle("教育背景")}
+      ${sectionTitle("EDUCATION")}
       ${resumeData.education
         .map(
-          (edu) => `
+          (education) => `
           <div class="entry compact-entry">
             <div class="entry-head">
               <div>
-                <h3>${edu.school}</h3>
-                <p>${edu.degree}</p>
+                <h3>${education.school}</h3>
+                <p>${education.degree}</p>
               </div>
-              <time>${edu.time}</time>
+              <time>${education.time}</time>
             </div>
-            <div class="entry-note">${edu.detail}</div>
+            <div class="entry-note">${education.detail}</div>
           </div>`
         )
         .join("")}
@@ -91,7 +91,7 @@ function renderEducation() {
 function renderLabs() {
   return `
     <section class="section">
-      ${sectionTitle("研究平台")}
+      ${sectionTitle("RESEARCH PLATFORMS")}
       <ul class="plain-list">
         ${resumeData.labs.map((lab) => `<li>${lab}</li>`).join("")}
       </ul>
@@ -102,7 +102,7 @@ function renderLabs() {
 function renderSkills() {
   return `
     <section class="section">
-      ${sectionTitle("专业技能")}
+      ${sectionTitle("TECHNICAL SKILLS")}
       <div class="skill-list">
         ${resumeData.skills
           .map(
@@ -151,19 +151,19 @@ function renderExperience(title, list, nameKey) {
 function renderProjects() {
   return `
     <section class="section">
-      ${sectionTitle("项目作品")}
+      ${sectionTitle("SELECTED PROJECTS")}
       ${resumeData.projects
         .map(
-          (p) => `
+          (project) => `
           <article class="project">
             <div class="project-head">
-              <h3>${p.title}</h3>
-              <span>${p.source}</span>
+              <h3>${project.title}</h3>
+              <span>${project.source}</span>
             </div>
-            <p>${p.text}</p>
+            <p>${project.text}</p>
             ${
-              p.repo
-                ? `<div class="repo-line"><strong>Repo：</strong><span>${p.repo}</span></div>`
+              project.repo
+                ? `<div class="repo-line"><strong>Repository:</strong><span>${project.repo}</span></div>`
                 : ""
             }
           </article>`
@@ -176,13 +176,13 @@ function renderProjects() {
 function renderPatentsAwards() {
   return `
     <section class="section">
-      ${sectionTitle("专利与荣誉")}
+      ${sectionTitle("PATENTS & HONORS")}
       <div class="subsection">
-        <h3 class="small-title">专利成果</h3>
+        <h3 class="small-title">PATENTS</h3>
         ${bullets(resumeData.patents)}
       </div>
       <div class="subsection">
-        <h3 class="small-title">荣誉奖项</h3>
+        <h3 class="small-title">HONORS & AWARDS</h3>
         ${bullets(resumeData.awards)}
       </div>
     </section>
@@ -202,7 +202,7 @@ function renderPortfolioLinks() {
 
   return `
     <section class="section portfolio-links-section">
-      ${sectionTitle("作品集与 GitHub")}
+      ${sectionTitle("PORTFOLIO & GITHUB")}
       <div class="portfolio-links">${portfolioLinks}</div>
     </section>
   `;
@@ -211,11 +211,11 @@ function renderPortfolioLinks() {
 async function waitForImages(root) {
   const images = Array.from(root.querySelectorAll("img"));
   await Promise.all(
-    images.map((img) => {
-      if (img.complete) return Promise.resolve();
+    images.map((image) => {
+      if (image.complete) return Promise.resolve();
       return new Promise((resolve) => {
-        img.onload = resolve;
-        img.onerror = resolve;
+        image.onload = resolve;
+        image.onerror = resolve;
       });
     })
   );
@@ -228,7 +228,7 @@ async function exportFixedPagesPdf() {
   if (!pages.length) return;
 
   const oldText = button.textContent;
-  button.textContent = "正在导出 PDF...";
+  button.textContent = "Exporting PDF...";
   button.disabled = true;
 
   try {
@@ -241,8 +241,8 @@ async function exportFixedPagesPdf() {
       compress: true
     });
 
-    for (let i = 0; i < pages.length; i += 1) {
-      const page = pages[i];
+    for (let index = 0; index < pages.length; index += 1) {
+      const page = pages[index];
       await waitForImages(page);
 
       const canvas = await html2canvas(page, {
@@ -257,22 +257,17 @@ async function exportFixedPagesPdf() {
         windowHeight: document.documentElement.scrollHeight
       });
 
-      const imgData = canvas.toDataURL("image/png");
-
-      if (i > 0) {
-        pdf.addPage();
-      }
-
-      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+      if (index > 0) pdf.addPage();
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
     }
 
     const now = new Date();
-    const pad = (n) => String(n).padStart(2, "0");
+    const pad = (number) => String(number).padStart(2, "0");
     const timestamp = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
-    pdf.save(`示例姓名_机器人与人工智能算法工程师_${timestamp}.pdf`);
+    pdf.save(`Alex_Chen_Robotics_AI_Engineer_${timestamp}.pdf`);
   } catch (error) {
     console.error(error);
-    alert("PDF 导出失败，请打开浏览器 Console 查看错误。");
+    alert("PDF export failed. Please open the browser console for details.");
   } finally {
     button.textContent = oldText;
     button.disabled = false;
@@ -280,25 +275,25 @@ async function exportFixedPagesPdf() {
 }
 
 function render() {
-  document.title = "示例姓名｜机器人算法与人工智能工程简历";
+  document.title = "Alex Chen | Robotics and AI Engineer Resume";
 
   app.innerHTML = `
     <div class="resume-controls no-print">
       <div class="resume-primary-actions">
-        <a class="portfolio-callout" href="/portfolio/">
+        <a class="portfolio-callout" href="/en/portfolio/">
           <span class="portfolio-callout-kicker">ENGINEERING PORTFOLIO</span>
-          <strong>查看个人主页</strong>
+          <strong>View Engineering Portfolio</strong>
           <i>↗</i>
         </a>
-        <a class="language-switch" href="/en/" aria-label="Open English resume">
+        <a class="language-switch" href="/" aria-label="Open Chinese resume">
           <span>LANGUAGE</span>
-          <strong>ENGLISH<br />RESUME</strong>
-          <i>EN ↗</i>
+          <strong>CHINESE<br />RESUME</strong>
+          <i>ZH ↗</i>
         </a>
       </div>
       <div class="pdf-control">
         <span>RESUME PDF</span>
-        <button id="exportPdfBtn">导出 PDF</button>
+        <button id="exportPdfBtn">Export PDF</button>
       </div>
     </div>
 
@@ -308,11 +303,11 @@ function render() {
         ${renderEducation()}
         ${renderLabs()}
         ${renderSkills()}
-        ${renderExperience("科研经历", resumeData.labExperience, "organization")}
+        ${renderExperience("RESEARCH EXPERIENCE", resumeData.labExperience, "organization")}
       </section>
 
       <section class="pdf-page page-two">
-        ${renderExperience("企业与工程经历", resumeData.companyExperience, "company")}
+        ${renderExperience("INDUSTRY & ENGINEERING EXPERIENCE", resumeData.companyExperience, "company")}
         ${renderProjects()}
         ${renderPatentsAwards()}
         ${renderPortfolioLinks()}

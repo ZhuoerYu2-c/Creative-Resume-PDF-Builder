@@ -1,5 +1,12 @@
 node_modules/
 dist/
+output/
+.playwright-cli/
 .DS_Store
-*.local
-.env
+.env*
+!.env.example
+backups/
+tmp/
+*.pdf
+*.before*
+.ipynb_checkpoints/

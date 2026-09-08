@@ -1,148 +1,149 @@
+// Fictional example content. Edit this module, then rebuild for production.
 export const resumeData = {
-  brand: {
-    targetCompany: {
-      name: "开放作品集",
-      caption: "Open Portfolio",
-      logo: "/assets/studio-mark.svg"
-    },
-    school: {
-      name: "云岚艺术学院",
-      caption: "Yunlan Academy of Arts",
-      logo: "/assets/academy-mark.svg"
+  "brand": {
+    "school": {
+      "name": "示例大学",
+      "caption": "工程学院",
+      "logo": "/assets/logo.svg"
     }
   },
-
-  profile: {
-    name: "林知夏",
-    englishName: "Zhiya Lin",
-    headline: "视觉传达设计 / 插画 / 品牌设计",
-    avatar: "/assets/art-avatar.svg",
-    contacts: [
-      "artist@example.com",
-      "portfolio.example.com",
-      "视觉传达、编辑设计、叙事插画"
+  "profile": {
+    "name": "示例姓名",
+    "englishName": "Alex Chen",
+    "preferredName": "",
+    "headline": "机器人与软件工程师",
+    "avatar": "/assets/avatar.svg",
+    "contacts": [
+      "Email: hello@example.com",
+      "Phone: 000 0000 0000",
+      "个人主页: https://example.com/portfolio/"
     ],
-    summary:
-      "视觉传达设计专业学生，关注品牌叙事、编辑设计与插画表达。擅长将田野观察、文字资料与视觉符号转化为完整设计系统，并能够独立推进从概念提案、视觉实验到印刷落地的创作流程。"
+    "summary": "工程专业学生的示例介绍。请填写自己的研究方向、技术经验与工程实践，本模板中的所有经历均为虚构占位内容。"
   },
-
-  education: [
+  "education": [
     {
-      school: "云岚艺术学院 · 视觉传达设计系",
-      degree: "视觉传达设计，艺术学学士",
-      time: "2022.09 - 2026.06",
-      detail: "学习方向：品牌设计、编辑设计、字体与信息可视化"
+      "school": "示例大学工程学院",
+      "degree": "工程专业，工学硕士",
+      "time": "2024 - Present",
+      "detail": "方向：机器人、软件与嵌入式系统"
     },
     {
-      school: "北岸青年艺术计划",
-      degree: "跨媒介视觉叙事工作坊",
-      time: "2024.07 - 2024.09",
-      detail: "围绕城市观察、摄影档案与独立出版完成系列创作"
+      "school": "示例大学工程学院",
+      "degree": "工程专业，工学学士",
+      "time": "2020 - 2024",
+      "detail": "方向：机器人、软件与嵌入式系统"
     }
   ],
-
-  labs: [
-    "品牌与文化：从地方文本、材料工艺与公共记忆中提取视觉语言",
-    "叙事与出版：通过插画、摄影、版式与装帧组织连续阅读体验"
+  "labs": [
+    "示例机器人实验室：仿真与系统集成"
   ],
-
-  skills: [
+  "skills": [
     {
-      title: "视觉设计",
-      items: "品牌识别、编辑设计、海报、字体排印、信息可视化"
+      "title": "机器人与控制",
+      "items": "ROS/ROS2、MAVLink、动力学建模、系统辨识"
     },
     {
-      title: "插画与影像",
-      items: "叙事插画、数码绘画、摄影、短片分镜、基础动效"
+      "title": "人工智能与算法",
+      "items": "Python、PyTorch、强化学习与最优控制"
     },
     {
-      title: "创作工具",
-      items: "Illustrator、Photoshop、InDesign、After Effects、Blender、Figma、Procreate"
+      "title": "技术栈",
+      "items": "STM32、C++、MATLAB、Simulink、Ubuntu、RViz、Gazebo、CAN、MQTT、TCP/IP"
+    },
+    {
+      "title": "语言能力",
+      "items": "填写真实语言水平。"
     }
   ],
-
-  labExperience: [
+  "labExperience": [
     {
-      organization: "云岚艺术学院视觉叙事实验室",
-      role: "城市记忆与独立出版项目",
-      time: "2024.10 - 2025.06",
-      bullets: [
-        "围绕旧街区店招、手写票据与居民口述资料开展视觉采集，建立包含摄影、文字与纹理样本的城市记忆档案。",
-        "将档案内容转化为 64 页独立出版物，负责信息层级、网格系统、字体搭配、插画与装帧打样。",
-        "参与成果展陈设计，完成展墙叙事顺序、出版物陈列与现场导视，形成从调研到展示的完整创作闭环。"
+      "organization": "示例实验室 1",
+      "logo": "/assets/logo.svg",
+      "role": "工程项目参与者",
+      "time": "2024 - 2025",
+      "bullets": [
+        "分析示例项目需求，拆分模块并实现软件接口。",
+        "搭建仿真与数据分析流程，整理输入、输出和验证方法。",
+        "请用自己的真实经历和经过验证的成果替换这些示例。"
       ]
     },
     {
-      organization: "纸上花园独立出版计划",
-      role: "插画与编辑设计成员",
-      time: "2024.03 - 2024.09",
-      bullets: [
-        "参与季刊主题策划与视觉风格制定，为诗歌、短篇小说与访谈内容创作跨页插画和章节图形。",
-        "建立封面系列化规则与印刷色彩规范，使多期刊物在保持主题差异的同时具备统一识别度。",
-        "协同编辑、摄影与印刷团队完成校对和纸张测试，输出适用于小批量印刷与线上传播的多套文件。"
+      "organization": "示例实验室 2",
+      "logo": "/assets/logo.svg",
+      "role": "工程项目参与者",
+      "time": "2024 - 2025",
+      "bullets": [
+        "分析示例项目需求，拆分模块并实现软件接口。",
+        "搭建仿真与数据分析流程，整理输入、输出和验证方法。",
+        "请用自己的真实经历和经过验证的成果替换这些示例。"
       ]
     }
   ],
-
-companyExperience: [
-  {
-    company: "雾岛品牌设计工作室",
-    logo: "/assets/studio-mark.svg",
-    role: "品牌视觉设计实习生",
-    time: "2025.07 - 2025.10",
-    bullets: [
-      "参与生活方式品牌视觉升级，完成竞品情绪板、品牌关键词提炼、标志延展与社交媒体模板设计。",
-      "为线下快闪活动设计主视觉、折页、价签与空间贴图，并根据不同物料尺寸建立可复用版式系统。",
-      "协助整理品牌视觉规范手册，统一字体、色彩、图像处理和版式使用规则。"
-    ]
-  },
-  {
-    company: "青禾公共艺术中心",
-    logo: "/assets/culture-mark.svg",
-    role: "展览视觉与活动设计助理",
-    time: "2025.01 - 2025.04",
-    bullets: [
-      "为青年艺术家联展制作展览主视觉与导视系统，将参展作品中的植物形态提炼为统一图形语言。",
-      "完成展签、活动手册、社交媒体海报与现场屏幕素材，适配印刷和数字媒介的不同输出要求。",
-      "参与开幕活动摄影记录与内容编辑，整理形成可持续更新的展览线上档案。"
-    ]
-  },
-  {
-    company: "微光社区艺术节",
-    logo: "/assets/festival-mark.svg",
-    role: "志愿设计与现场执行",
-    time: "2024.05 - 2024.06",
-    bullets: [
-      "为社区艺术节制作活动日程、摊位地图和志愿者识别物料，提升现场信息传达效率。",
-      "参与儿童拼贴工作坊流程设计，将回收纸材整理为易于使用的色彩与形状素材包。"
-    ]
-  }
-],
-
-  projects: [
+  "companyExperience": [
     {
-      title: "《风从巷口来》城市视觉档案",
-      source: "个人创作项目",
-      text:
-        "以旧街区的招牌、门牌、窗花和生活痕迹为素材，完成摄影采集、图形再设计、字体实验与编辑排版，最终形成一本城市观察出版物和一组主题海报。"
+      "company": "示例企业 1",
+      "logo": "/assets/logo.svg",
+      "role": "工程项目参与者",
+      "time": "2024 - 2025",
+      "bullets": [
+        "分析示例项目需求，拆分模块并实现软件接口。",
+        "搭建仿真与数据分析流程，整理输入、输出和验证方法。",
+        "请用自己的真实经历和经过验证的成果替换这些示例。"
+      ]
     },
     {
-      title: "潮汐书店品牌识别系统",
-      source: "个人作品集项目",
-      repo: "github.com/example/tide-bookstore-brand",
-      text:
-        "围绕独立书店的阅读、停留与交流场景建立品牌概念，完成标志、字体、色彩、书签、包装、活动海报和社交媒体模板，并制作完整视觉规范手册。"
+      "company": "示例企业 2",
+      "logo": "/assets/logo.svg",
+      "role": "工程项目参与者",
+      "time": "2024 - 2025",
+      "bullets": [
+        "分析示例项目需求，拆分模块并实现软件接口。",
+        "搭建仿真与数据分析流程，整理输入、输出和验证方法。",
+        "请用自己的真实经历和经过验证的成果替换这些示例。"
+      ]
+    },
+    {
+      "company": "示例企业 3",
+      "logo": "/assets/logo.svg",
+      "role": "工程项目参与者",
+      "time": "2024 - 2025",
+      "bullets": [
+        "分析示例项目需求，拆分模块并实现软件接口。",
+        "搭建仿真与数据分析流程，整理输入、输出和验证方法。",
+        "请用自己的真实经历和经过验证的成果替换这些示例。"
+      ]
     }
   ],
-
-  patents: [
-    "《风从巷口来》入选云岚艺术学院年度学生作品展，2025。",
-    "纸上花园独立出版计划联合展陈，负责插画、版式与出版物陈列，2024。"
+  "projects": [
+    {
+      "title": "工程示例项目 1",
+      "source": "示例项目",
+      "text": "介绍项目问题、实现方法、验证过程和结果。当前文字仅用于展示模板排版。",
+      "repo": "https://github.com/example"
+    },
+    {
+      "title": "工程示例项目 2",
+      "source": "示例项目",
+      "text": "介绍项目问题、实现方法、验证过程和结果。当前文字仅用于展示模板排版。",
+      "repo": "https://github.com/example"
+    }
   ],
-
-  awards: [
-    "云岚艺术学院视觉传达设计系年度优秀作品，2025。",
-    "校园创意海报征集优秀奖，2024。",
-    "青年艺术计划创作支持奖学金，2024。"
+  "patents": [
+    "在此填写真实论文或专利，以及本人贡献。"
+  ],
+  "awards": [
+    "在此填写真实奖项与获奖时间。"
+  ],
+  "portfolioLinks": [
+    {
+      "label": "作品集",
+      "text": "https://example.com/portfolio/",
+      "url": "https://example.com/portfolio/"
+    },
+    {
+      "label": "GitHub",
+      "text": "https://github.com/example",
+      "url": "https://github.com/example"
+    }
   ]
 };

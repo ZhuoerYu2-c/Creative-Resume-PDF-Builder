@@ -1,12 +1,12 @@
 :root {
   --paper: #ffffff;
-  --bg: #e9e6e2;
-  --ink: #242229;
-  --muted: #716a72;
-  --line: #ddd6d5;
-  --soft: #f7f3f0;
-  --accent: #275b5a;
-  --gold: #b64f45;
+  --bg: #eceff3;
+  --ink: #172033;
+  --muted: #647084;
+  --line: #d9dee8;
+  --soft: #f6f8fb;
+  --accent: #1f3d74;
+  --gold: #9a6a22;
   --shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
 }
 
@@ -16,43 +16,180 @@
 
 html {
   background: var(--bg);
+  min-width: 1000px;
 }
 
 body {
   margin: 0;
+  min-width: 1000px;
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
   line-height: 1.5;
 }
 
-.toolbar {
+.resume-controls {
   width: 960px;
   margin: 18px auto 14px;
-  padding: 12px 16px;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
   align-items: center;
 }
 
-.toolbar strong {
+.resume-primary-actions {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 218px;
+  gap: 12px;
+}
+
+.portfolio-callout {
+  position: relative;
+  min-height: 92px;
+  padding: 17px 58px 16px 19px;
+  overflow: hidden;
+  color: #ffffff;
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 82% 10%, rgba(113, 177, 255, 0.38), transparent 32%),
+    linear-gradient(135deg, #17243a, #263f66);
+  box-shadow: 0 13px 35px rgba(24, 42, 72, 0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-switch {
+  position: relative;
+  min-height: 92px;
+  padding: 16px 18px;
+  overflow: hidden;
+  color: #17243a;
+  border: 1px solid #b9c8df;
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(92, 148, 232, 0.34), transparent 32%),
+    linear-gradient(145deg, #fafdff, #e7eef9);
+  box-shadow: 0 12px 32px rgba(30, 62, 108, 0.13);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.language-switch::before {
+  content: "";
+  position: absolute;
+  inset: -80% auto -80% -45%;
+  width: 38%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  animation: language-sheen 4.2s ease-in-out infinite;
+}
+
+.language-switch:hover {
+  transform: translateY(-3px);
+  border-color: #7da2d8;
+  box-shadow: 0 18px 42px rgba(30, 62, 108, 0.22);
+}
+
+.language-switch span,
+.language-switch strong,
+.language-switch i {
+  position: relative;
+  z-index: 1;
   display: block;
+}
+
+.language-switch span {
+  color: #55729e;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.language-switch strong {
+  margin-top: 7px;
   font-size: 14px;
+  line-height: 1.12;
+  letter-spacing: 0.04em;
 }
 
-.toolbar span {
+.language-switch i {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  color: #55729e;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+@keyframes language-sheen {
+  0%, 58% { left: -45%; opacity: 0; }
+  68% { opacity: 0.9; }
+  88%, 100% { left: 118%; opacity: 0; }
+}
+
+.portfolio-callout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 40px rgba(24, 42, 72, 0.28);
+}
+
+.portfolio-callout-kicker,
+.pdf-control > span {
   display: block;
-  margin-top: 2px;
-  color: var(--muted);
-  font-size: 12px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
-.toolbar button {
+.portfolio-callout-kicker {
+  color: #91b9ff;
+}
+
+.portfolio-callout strong,
+.portfolio-callout small {
+  display: block;
+}
+
+.portfolio-callout strong {
+  margin-top: 7px;
+  font-size: 16px;
+}
+
+.portfolio-callout small {
+  margin-top: 4px;
+  color: #cbd6e8;
+  font-size: 11px;
+}
+
+.portfolio-callout i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #91b9ff;
+  font-size: 25px;
+  font-style: normal;
+}
+
+.pdf-control {
+  min-height: 92px;
+  padding: 14px;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.pdf-control > span {
+  color: var(--muted);
+  text-align: center;
+}
+
+.pdf-control button {
   border: 0;
   background: var(--ink);
   color: white;
@@ -92,9 +229,15 @@ body {
   margin-bottom: 20px;
 }
 
+.brand-spacer {
+  width: 260px;
+  height: 52px;
+  flex: none;
+}
+
 .logo-block {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   max-width: 260px;
 }
@@ -105,32 +248,29 @@ body {
 }
 
 .logo-frame {
-  width: 52px;
-  height: 52px;
+  width: 70px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft);
   display: grid;
   place-items: center;
+  overflow: hidden;
   flex: none;
 }
 
 .logo-frame img {
-  max-width: 52px;
-  max-height: 52px;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  display: block;
+  padding: 7px;
 }
 
 .logo-placeholder {
-  width: 52px;
-  height: 52px;
-  border: 1px dashed var(--line);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
   font-size: 12px;
   font-weight: 900;
   color: var(--accent);
+  letter-spacing: 0.03em;
 }
 
 .logo-text strong {
@@ -147,16 +287,17 @@ body {
 
 .identity {
   display: grid;
-  grid-template-columns: 104px 1fr;
-  gap: 22px;
+  grid-template-columns: 138px 1fr;
+  gap: 24px;
   align-items: center;
 }
 
 .avatar-frame {
-  width: 96px;
-  height: 118px;
+  position: relative;
+  width: 132px;
+  height: 132px;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 50%;
   background: #fff;
   overflow: hidden;
   display: grid;
@@ -164,9 +305,13 @@ body {
 }
 
 .avatar-frame img {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .avatar-placeholder {
@@ -199,7 +344,7 @@ body {
 
 .label {
   color: var(--gold);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -207,7 +352,7 @@ body {
 
 .identity-main h1 {
   margin: 5px 0 0;
-  font-size: 38px;
+  font-size: 35px;
   line-height: 1.1;
   letter-spacing: 0.06em;
 }
@@ -215,22 +360,31 @@ body {
 .identity-main h1 span {
   margin-left: 14px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.preferred-name {
+  margin-top: 5px;
+  color: var(--gold);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .identity-main h3 {
   margin: 8px 0 8px;
   color: var(--accent);
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .identity-main p {
   margin: 0;
   max-width: 730px;
   color: #344054;
-  font-size: 14px;
+  font-size: 13.4px;
 }
 
 .contacts {
@@ -388,23 +542,6 @@ body {
   font-size: 13.2px;
 }
 
-.repo-line {
-  display: flex;
-  gap: 4px;
-  align-items: baseline;
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: 12.5px;
-}
-
-.repo-line strong {
-  color: var(--accent);
-}
-
-.repo-line span {
-  word-break: break-all;
-}
-
 .subsection {
   margin-bottom: 14px;
 }
@@ -415,6 +552,119 @@ body {
   font-size: 14.5px;
 }
 
+/* Logo 自适应修复：完整显示，不裁切 */
+.logo-frame {
+  width: 86px;
+  height: 62px;
+  padding: 6px;
+  overflow: visible;
+  background: #ffffff;
+}
+
+.logo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
+  display: block;
+}
+
+/* 修复 logo：框固定，图片完整缩放到框内，不溢出 */
+.logo-frame {
+  width: 70px;
+  height: 46px;
+  padding: 5px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* 最终版：去掉 logo 框，让 logo 像正常图片一样贴近文字 */
+.logo-block {
+  gap: 8px !important;
+}
+
+.logo-block.right {
+  gap: 8px !important;
+}
+
+.logo-frame {
+  width: 52px !important;
+  height: 52px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+}
+
+.logo-frame img {
+  max-width: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.logo-placeholder {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 目标公司 logo 区域：和学校区域保持一致，无卡片边框 */
+.logo-block.left {
+  gap: 8px !important;
+}
+
+.logo-block.left .logo-frame {
+  width: 52px !important;
+  height: 52px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.logo-block.left .logo-frame img {
+  max-width: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+.logo-block.left .logo-placeholder {
+  width: 52px;
+  height: 52px;
+  border: 1px dashed #c9d2e3;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  color: #647084;
+  background: transparent;
+}
+
+/* 公司名后面的内联 logo：无边框、自适应、不抢文字 */
 .company-title {
   display: flex;
   align-items: center;
@@ -432,39 +682,353 @@ body {
   vertical-align: middle;
 }
 
-@media (max-width: 980px) {
-  .toolbar,
-  .resume-document,
-  .pdf-page {
-    width: calc(100vw - 32px);
+/* 项目 Repo 链接行 */
+.repo-line {
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: #647084;
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.repo-line strong {
+  color: #1f3d74;
+}
+
+.repo-line span {
+  word-break: break-all;
+}
+
+/* PDF 导出友好的稳重配色：减少蓝色偏色 */
+:root {
+  --ink: #18202f;
+  --muted: #5f6878;
+  --line: #d8dde6;
+  --soft: #f7f8fb;
+  --accent: #263f66;
+  --gold: #8a6a32;
+}
+
+.section-title {
+  color: #263f66 !important;
+}
+
+.identity-main h3 {
+  color: #263f66 !important;
+}
+
+.entry-head p {
+  color: #263f66 !important;
+}
+
+.label {
+  color: #8a6a32 !important;
+}
+
+/* BOSS 通用版：左上角目标公司位置留空，保持右上角学校 logo 对齐 */
+.brand-spacer {
+  width: 260px;
+  height: 52px;
+  flex: 0 0 260px;
+}
+
+/* 联系方式压缩版：适配 Email / Phone / Portfolio / GitHub 四项 */
+.contacts {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px 10px !important;
+  margin-top: 12px !important;
+  font-size: 12.2px !important;
+  line-height: 1.35 !important;
+}
+
+.contacts span {
+  padding-right: 10px !important;
+  border-right: 1px solid var(--line) !important;
+  white-space: nowrap !important;
+}
+
+.contacts span:last-child {
+  border-right: 0 !important;
+}
+
+/* English resume: preserve the fixed desktop/PDF layout while allowing longer copy. */
+.english-resume .pdf-page {
+  padding: 34px 42px 38px;
+}
+
+.english-resume .header {
+  padding-bottom: 18px;
+  margin-bottom: 17px;
+}
+
+.english-resume .brand-line {
+  margin-bottom: 17px;
+}
+
+.english-resume .identity {
+  grid-template-columns: 138px 1fr;
+  gap: 24px;
+}
+
+.english-resume .avatar-frame {
+  width: 132px;
+  height: 132px;
+}
+
+.english-resume .identity-main h1 {
+  font-size: 35px;
+  letter-spacing: 0.025em;
+}
+
+.english-resume .identity-main h1 span {
+  font-size: 14px;
+}
+
+.english-resume .identity-main h3 {
+  margin: 8px 0 7px;
+  font-size: 16px;
+}
+
+.english-resume .identity-main p {
+  font-size: 12.2px;
+  line-height: 1.48;
+}
+
+.english-resume .contacts {
+  gap: 5px 9px !important;
+  margin-top: 12px !important;
+  font-size: 10.5px !important;
+}
+
+.english-resume .contacts span {
+  padding-right: 8px !important;
+}
+
+.english-resume .section {
+  margin-top: 18px;
+}
+
+.english-resume .section-title {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.english-resume .entry {
+  margin-bottom: 14px;
+}
+
+.english-resume .compact-entry {
+  margin-bottom: 11px;
+}
+
+.english-resume .entry-head {
+  gap: 18px;
+  margin-bottom: 4px;
+}
+
+.english-resume .entry-head h3 {
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+.english-resume .entry-head p,
+.english-resume .entry-note,
+.english-resume .plain-list,
+.english-resume .skill-row,
+.english-resume .bullets,
+.english-resume .project p {
+  font-size: 12.1px;
+  line-height: 1.48;
+}
+
+.english-resume .entry-head time {
+  min-width: 112px;
+  font-size: 10.8px;
+}
+
+.english-resume .bullets {
+  margin-top: 6px;
+  padding-left: 17px;
+}
+
+.english-resume .bullets li {
+  margin-bottom: 5px;
+}
+
+.english-resume .skill-row {
+  grid-template-columns: 150px 1fr;
+  padding: 7px 9px;
+}
+
+.english-resume .company-title {
+  gap: 7px;
+}
+
+.english-resume .company-logo-inline {
+  max-width: 66px;
+  max-height: 22px;
+}
+
+.english-resume .project {
+  margin-bottom: 14px;
+}
+
+.english-resume .project-head {
+  gap: 12px;
+}
+
+.english-resume .project-head h3 {
+  font-size: 13.8px;
+  line-height: 1.3;
+}
+
+.english-resume .project-head span,
+.english-resume .repo-line {
+  font-size: 10.3px;
+}
+
+.english-resume .subsection {
+  margin-bottom: 13px;
+}
+
+.english-resume .small-title {
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    min-width: 0;
+    background: #ffffff;
+  }
+
+  .resume-document {
+    margin: 0;
   }
 
   .pdf-page {
-    height: auto;
-    min-height: 1358px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
   }
+}
 
-  .brand-line,
-  .identity,
-  .entry-head,
-  .project-head,
-  .skill-row {
-    display: block;
+@media (prefers-reduced-motion: reduce) {
+  .language-switch::before {
+    animation: none;
   }
+}
 
-  .logo-block.right {
-    margin-top: 12px;
-    flex-direction: row;
-    text-align: left;
-  }
+/* 联系方式压缩版：适配 Email / Phone / Portfolio / GitHub 四项 */
+.contacts {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px 10px !important;
+  margin-top: 12px !important;
+  font-size: 12.2px !important;
+  line-height: 1.35 !important;
+}
 
-  .avatar-frame {
-    margin-bottom: 14px;
-  }
+.contacts span {
+  padding-right: 10px !important;
+  border-right: 1px solid var(--line) !important;
+  white-space: nowrap !important;
+}
 
-  .entry-head time,
-  .project-head span {
-    display: block;
-    margin-top: 4px;
-  }
+.contacts span:last-child {
+  border-right: 0 !important;
+}
+
+/* 页首三项联系方式横向铺满，保持固定桌面与 PDF 版式。 */
+.contacts {
+  display: grid !important;
+  grid-template-columns: 242px 196px minmax(0, 1fr) !important;
+  gap: 0 24px !important;
+  margin-top: 15px !important;
+  color: var(--muted) !important;
+  font-size: 12.6px !important;
+  line-height: 1.4 !important;
+}
+
+.contacts span {
+  min-width: 0;
+  padding-right: 24px !important;
+  border-right: 1px solid var(--line) !important;
+  white-space: nowrap !important;
+}
+
+.contacts span:last-child {
+  border-right: 0 !important;
+}
+
+.english-resume .contacts {
+  grid-template-columns: 232px 184px minmax(0, 1fr) !important;
+  gap: 0 22px !important;
+  margin-top: 14px !important;
+  font-size: 11.2px !important;
+  line-height: 1.4 !important;
+}
+
+.english-resume .contacts span {
+  min-width: 0;
+  padding-right: 22px !important;
+}
+
+.portfolio-links-section {
+  margin-top: 13px;
+}
+
+.portfolio-links-section .section-title {
+  margin-bottom: 8px;
+}
+
+.portfolio-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.portfolio-link {
+  min-width: 0;
+  padding: 9px 11px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: baseline;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.portfolio-link strong {
+  color: var(--accent);
+  font-size: 11.5px;
+}
+
+.portfolio-link span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.english-resume .portfolio-link {
+  padding: 8px 10px;
+  font-size: 10.6px;
+}
+
+.english-resume .portfolio-link strong {
+  font-size: 10.4px;
 }
